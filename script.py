@@ -44,5 +44,4 @@ if uploaded_image is not None:
     print(class_names[idx])
 
     # Display the prediction
-    # st.write(f"Prediction: {prediction}")
-    st.write(f"Output: {class_names[idx]}")
+    st.title(f"Output: {class_names[idx]}")

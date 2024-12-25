@@ -8,6 +8,7 @@ model = tf.keras.models.load_model("customModel.h5")
 
 # Define the Streamlit app
 st.title("Optical Character Recognition")
+st.write("It can only recognize single character at a time so please provide a single character image.")
 
 def preprocess_image(uploaded_file):
     image = Image.open(uploaded_file)

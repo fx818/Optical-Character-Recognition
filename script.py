@@ -25,8 +25,24 @@ train_dir = "kaggle/input/standard-ocr-dataset/data/training_data"
 data_dir = pathlib.Path(train_dir)
 class_names = np.array(sorted([item.name for item in data_dir.glob('*')]))
 
-# Upload image
-uploaded_image = st.file_uploader("Upload an Image", type=["jpg", "jpeg", "png"])
+
+
+# Let the user choose the input method
+input_method = st.radio("Choose input method", ("Upload Image", "Use Camera"))
+
+# Initialize an image variable
+image = None
+
+if input_method == "Upload Image":
+    # File uploader for images
+    uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+    
+
+elif input_method == "Use Camera":
+    # Camera input for capturing an image
+    uploaded_image = st.camera_input("Take a picture")
+    
+
 
 if uploaded_image is not None:
     image = Image.open(uploaded_image)
